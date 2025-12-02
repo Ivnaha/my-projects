@@ -3,7 +3,7 @@
 import sys
 import subprocess
 import os
-from ipv4_validation import get_valid_ipv4, is_valid_ipv4
+from ipv4_validation import is_valid_ipv4
 from config import HOME_NAS, PI, sslcert_path, sslkey_path
 def add_site(name, domain, port):
     while True: 
