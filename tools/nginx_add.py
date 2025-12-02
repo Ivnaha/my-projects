@@ -3,7 +3,7 @@
 import sys
 import subprocess
 import os
-from ipv4_validation import get_valid_ipv4, is_valid_ipv4
+from ipv4_validation import is_valid_ipv4
 from config import HOME_NAS, PI, sslcert_path, sslkey_path
 def add_site(name, domain, port):
     while True: 
@@ -14,12 +14,12 @@ def add_site(name, domain, port):
     Other (Enter IP) """).strip()
 
         if host_ip == "1":
-            host_machine = "<my_nas_ip>"
+            host_machine = f"{HOME_NAS}"
             print(f"using the NAS ip: {host_machine}:{port}") 
             break
 
         elif host_ip == "2":
-            host_machine = "<my_pi_ip>"
+            host_machine = f"{PI}"
             print(f"using the PI ip: {host_machine}:{port}")
             break 
 
@@ -58,7 +58,7 @@ server {{
 
 server {{ 
         listen 80;
-        server_name {domain}
+        server_name {domain};
         return 301 https://$host$request_uri;
 }}
 
