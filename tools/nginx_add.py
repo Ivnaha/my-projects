@@ -80,7 +80,7 @@ server {{
 
     subprocess.run(['ln', '-sf', config_path, f'/etc/nginx/sites-enabled/{name}'])
     subprocess.run(['nginx', '-t'], check=True)
-    subprocess.run(['systemctl', 'reload', 'nginx'], check=true)
+    subprocess.run(['systemctl', 'reload', 'nginx'], check=True)
 
     print ('good job son, you added {name} at {domain} on port {port}')
 
